@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:stretchColumns="0">
+	<TableRow>
+		<TextView android:text="@string/login_required"
+			android:textStyle="bold" android:gravity="center" android:padding="8dip"
+			android:textSize="19px" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+	</TableRow>
+	<TableRow>
+		<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:stretchColumns="1">
+
+
+			<TableRow>
+				<TextView android:text="@string/login_user"
+					android:textStyle="bold" android:gravity="right" android:padding="3dip" />
+
+				<EditText android:id="@+id/username" android:padding="3dip"
+					android:scrollHorizontally="true" />
+			</TableRow>
+
+			<TableRow>
+				<TextView android:text="@string/login_password"
+					android:textStyle="bold" android:gravity="right" android:padding="3dip" />
+
+				<EditText android:id="@+id/password" android:password="true"
+					android:padding="3dip" android:scrollHorizontally="true" />
+			</TableRow>
+
+			<TableRow android:gravity="right">
+
+				<Button android:id="@+id/signup" android:text="@string/login_signup" />
+
+				<Button android:id="@+id/login" android:text="@string/login_login" />
+			</TableRow>
+		</TableLayout>
+	</TableRow>
+</TableLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+	<ScrollView android:layout_width="wrap_content"
+		android:layout_height="fill_parent">
+		<TableLayout android:layout_width="fill_parent"
+			android:layout_height="fill_parent" android:stretchColumns="0">
+			<TableRow>
+				<TextView android:text="@string/signup_info"
+					android:textStyle="bold" android:gravity="left" android:padding="8dip"
+					android:textSize="19px" />
+			</TableRow>
+			<TableRow>
+				<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:layout_width="fill_parent" android:layout_height="fill_parent"
+					android:stretchColumns="0">
+
+					<TableRow>
+						<TextView android:text="@string/login_user"
+							android:textStyle="bold" android:gravity="left" android:padding="3dip" />
+					</TableRow>
+
+					<TableRow>
+						<EditText android:id="@+id/username" android:text="tansaku"
+							android:padding="3dip" android:scrollHorizontally="true" />
+					</TableRow>
+
+					<TableRow>
+						<TextView android:text="@string/login_password"
+							android:textStyle="bold" android:gravity="left" android:padding="3dip" />
+					</TableRow>
+
+					<TableRow>
+						<EditText android:id="@+id/password" android:text="samjoseph"
+							android:password="true" android:padding="3dip"
+							android:scrollHorizontally="true" />
+					</TableRow>
+
+					<TableRow>
+						<TextView android:text="@string/login_password_confirmation"
+							android:textStyle="bold" android:gravity="left" android:padding="3dip" />
+					</TableRow>
+
+					<TableRow>
+						<EditText android:id="@+id/password_confirmation"
+							android:text="samjoseph" android:password="true" android:padding="3dip"
+							android:scrollHorizontally="true" />
+					</TableRow>
+
+					<TableRow>
+						<TextView android:text="@string/login_email"
+							android:textStyle="bold" android:gravity="left" android:padding="3dip" />
+					</TableRow>
+
+					<TableRow>
+						<EditText android:id="@+id/email" android:text="tansaku@gmail.com"
+							android:padding="3dip" android:scrollHorizontally="true" />
+					</TableRow>
+
+					<TableRow android:gravity="right" android:layout_width="fill_parent"
+						android:layout_height="fill_parent">
+						<Button android:id="@+id/signup" android:text="@string/login_signup"
+							android:layout_width="fill_parent" android:layout_height="fill_parent" />
+					</TableRow>
+				</TableLayout>
+			</TableRow>
+		</TableLayout>
+	</ScrollView>
+</LinearLayout>
+

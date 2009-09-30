@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:layout_gravity="center"
+	android:isScrollContainer="true" android:scrollbars="vertical">
+	<ScrollView android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+		<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:stretchColumns="0">
+
+			<TableRow>
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:src="@drawable/smartfm_logo"
+					android:layout_gravity="center" android:scaleType="center"
+					android:layout_span="3" android:padding="12dip" />
+			</TableRow>
+
+			<TableRow>
+				<TextView android:id="@+id/main_lookup" android:text="@string/main_lookup"
+					android:textStyle="bold" android:gravity="left" android:padding="3dip"
+					android:layout_span="3" />
+			</TableRow>
+
+			<TableRow>
+
+				<AutoCompleteTextView android:id="@+id/lookup"
+					android:scrollHorizontally="true" android:layout_width="fill_parent"
+					android:layout_height="wrap_content" android:hint="e.g. cat" />
+				<ImageButton android:id="@+id/main_submit" android:src="@drawable/ic_btn_search"
+					android:layout_width="fill_parent" android:layout_height="wrap_content" />
+				<ImageButton android:id="@+id/main_voice" android:src="@drawable/ic_btn_speak_now"
+					android:layout_width="fill_parent" android:layout_height="wrap_content" />
+
+			</TableRow>
+			<TableRow>
+				<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:layout_width="wrap_content" android:layout_height="fill_parent"
+					android:layout_span="3">
+
+					<TableRow android:layout_width="fill_parent"
+						android:layout_height="fill_parent">
+						<TextView android:text="@string/main_search_language"
+							android:textStyle="bold" android:gravity="left" android:padding="3dip" />
+						<TextView android:text="@string/main_result_language"
+							android:textStyle="bold" android:gravity="right" android:padding="3dip" />
+					</TableRow>
+
+					<TableRow android:layout_width="wrap_content"
+						android:layout_height="fill_parent">
+						<Spinner android:id="@+id/search_language"
+							android:gravity="left" android:scrollHorizontally="true"
+							android:layout_width="wrap_content" android:layout_height="fill_parent"
+							android:minWidth="160px" android:maxWidth="160px" />
+						<Spinner android:id="@+id/result_language"
+							android:gravity="right" android:scrollHorizontally="true"
+							android:layout_width="wrap_content" android:layout_height="fill_parent"
+							android:minWidth="160px" android:maxWidth="160px" />
+					</TableRow>
+				</TableLayout>
+			</TableRow>
+			<TableRow>
+				<TextView android:text="@string/main_recent_lang_pairs_spinner_prompt"
+					android:textStyle="bold" android:gravity="left" android:padding="3dip"
+					android:layout_span="3" />
+			</TableRow>
+			<TableRow android:gravity="right">
+
+				<Spinner android:id="@+id/recent_lang_pairs_spinner"
+					android:layout_width="fill_parent" android:layout_height="wrap_content"
+					android:drawSelectorOnTop="true"
+					android:prompt="@string/main_recent_lang_pairs_spinner_prompt"
+					android:layout_span="3" />
+			</TableRow>
+
+		</TableLayout>
+	</ScrollView>
+</LinearLayout>

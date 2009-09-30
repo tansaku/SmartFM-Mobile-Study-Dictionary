@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+	<ScrollView android:layout_width="wrap_content"
+		android:layout_height="fill_parent">
+
+		<TableLayout android:layout_width="fill_parent"
+			android:layout_height="fill_parent" android:stretchColumns="0">
+
+			<TableRow>
+				<TextView android:id="@+id/create_item_cue_legend"
+					android:text="@string/create_item_cue" android:textStyle="bold"
+					android:gravity="left" android:padding="3dip" />
+			</TableRow>
+
+			<TableRow>
+				<EditText android:id="@+id/cue" android:padding="3dip"
+					android:scrollHorizontally="true" />
+			</TableRow>
+
+			<TableRow>
+				<TextView android:id="@+id/create_item_cue_character"
+					android:text="@string/create_item_cue_character" android:textStyle="bold"
+					android:gravity="left" android:padding="3dip" />
+			</TableRow>
+
+			<TableRow>
+				<EditText android:id="@+id/cue_character" android:padding="3dip"
+					android:scrollHorizontally="true" />
+			</TableRow>
+
+			<TableRow>
+				<TextView android:id="@+id/create_item_response_legend"
+					android:text="@string/create_item_response" android:textStyle="bold"
+					android:gravity="left" android:padding="3dip" />
+			</TableRow>
+
+			<TableRow>
+				<EditText android:id="@+id/response" android:padding="3dip"
+					android:scrollHorizontally="true" />
+			</TableRow>
+
+			<TableRow>
+				<TextView android:id="@+id/create_item_response_character"
+					android:text="@string/create_item_response_character"
+					android:textStyle="bold" android:gravity="left" android:padding="3dip" />
+			</TableRow>
+
+			<TableRow>
+				<EditText android:id="@+id/response_character"
+					android:padding="3dip" android:scrollHorizontally="true" />
+			</TableRow>
+
+			<TableRow>
+				<TextView android:text="@string/create_item_pos"
+					android:textStyle="bold" android:gravity="left" android:padding="3dip" />
+			</TableRow>
+
+			<TableRow>
+				<Spinner android:id="@+id/pos" android:padding="3dip"
+					android:scrollHorizontally="true" />
+			</TableRow>
+
+			<TableRow android:gravity="right">
+
+				<Button android:id="@+id/create_item_submit" android:text="@string/create_item_submit_button" />
+
+			</TableRow>
+		</TableLayout>
+	</ScrollView>
+</LinearLayout>

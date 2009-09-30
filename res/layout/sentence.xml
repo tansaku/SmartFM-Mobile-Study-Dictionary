@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		* Copyright (C) 2007 Google Inc. * * Licensed under the Apache
+		License, Version 2.0 (the "License"); * you may not use this file
+		except in compliance with the License. * You may obtain a copy of the
+		License at * * http://www.apache.org/licenses/LICENSE-2.0 * * Unless
+		required by applicable law or agreed to in writing, software *
+		distributed under the License is distributed on an "AS IS" BASIS, *
+		WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+		implied. * See the License for the specific language governing
+		permissions and * limitations under the License.
+	-->
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:shrinkColumns="1" android:stretchColumns="2">
+	<TableRow>
+	    <RelativeLayout>	
+			<ImageView android:id="@+id/sentence_sound" 
+			    android:src="@drawable/active_sound"
+				android:adjustViewBounds="true" 
+				android:maxWidth="150dip"
+				android:maxHeight="150dip" 
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:padding="1dip"
+				android:layout_alignParentTop="true" 
+				android:layout_gravity="left"
+				android:layout_alignWithParentIfMissing="true" />
+		    <ImageView android:id="@+id/translation_sound" 
+			    android:src="@drawable/inactive_sound_add"
+				android:adjustViewBounds="true" 
+				android:maxWidth="150dip"
+				android:maxHeight="150dip" 
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:padding="1dip"
+				android:layout_below="@id/sentence_sound"
+				android:layout_alignWithParentIfMissing="true" />
+	    </RelativeLayout>	
+		<RelativeLayout>	
+			<TextView android:id="@+id/sentence" 
+				android:layout_height="wrap_content" 
+				android:padding="10dip"
+				android:text="Humans began keeping cats as pets to hunt rats and mice."
+				android:layout_width="wrap_content" 
+				android:layout_alignWithParentIfMissing="true" android:gravity="center_vertical"/>
+			<TextView android:id="@+id/sentence_translation"
+	            android:layout_height="wrap_content"
+				android:padding="10dip" 
+				android:text="人類はネズミを捕るために猫を飼い始めた。"
+				android:layout_width="wrap_content" 
+				android:layout_below="@id/sentence"
+				android:layout_alignWithParentIfMissing="true" android:gravity="center_vertical"/>
+		</RelativeLayout>	
+		<!--  would be nice if we could get image to span two rows ... -->
+		<ImageView android:id="@+id/sentence_image" 
+		    android:src="@drawable/camera"
+			android:adjustViewBounds="true" 
+			android:maxWidth="150dip"
+			android:maxHeight="150dip" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:padding="10dip"
+			android:layout_alignWithParentIfMissing="true" android:layout_gravity="top|right" android:minHeight="150dip" android:minWidth="150dip"/>
+	</TableRow>
+</TableLayout>
