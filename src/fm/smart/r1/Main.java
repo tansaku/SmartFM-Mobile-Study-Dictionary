@@ -29,6 +29,7 @@ import org.apache.http.client.methods.HttpGet;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -168,7 +169,8 @@ public class Main extends Activity implements View.OnClickListener {
 			Log.d("LP-DEBUG", pair.getClass().getName());
 			Log.d("LP-DEBUG", pair.toString());
 			Log.d("LP-DEBUG", this.toString());
-			if (pair.getClass().getName().equals("fm.smart.r1.Main$LanguagePair")) {
+			if (pair.getClass().getName().equals(
+					"fm.smart.r1.Main$LanguagePair")) {
 				LanguagePair lp = (LanguagePair) pair;
 				if (this.result_language_code.equals(lp.result_language_code)
 						&& this.search_language_code
@@ -383,6 +385,15 @@ public class Main extends Activity implements View.OnClickListener {
 		button.setOnClickListener(this);
 		// button.setEnabled(false);
 		ImageButton vbutton = (ImageButton) findViewById(R.id.main_voice);
+		final Intent intent = new Intent(
+				"android.speech.action.RECOGNIZE_SPEECH");
+		ComponentName cname = intent.resolveActivity(getPackageManager());
+		if (cname != null) {
+			Log.d("SPEECH-DEBUG", cname.toString());
+		} else {
+			Log.d("SPEECH-DEBUG", "NULL");
+			vbutton.setEnabled(false);
+		}
 		// TODO some way to test if voice is available and disable
 		// android.content.ActivityNotFoundException: No Activity found to
 		// handle Intent { action=android.speech.action.RECOGNIZE_SPEECH (has
@@ -390,9 +401,8 @@ public class Main extends Activity implements View.OnClickListener {
 		// test for presence of activities?
 		vbutton.setOnClickListener(new OnClickListener() {
 			public void onClick(View view) {
+
 				// Create Intent
-				Intent intent = new Intent(
-						"android.speech.action.RECOGNIZE_SPEECH");
 
 				// Settings
 				intent.putExtra("android.speech.extra.LANGUAGE_MODEL",
@@ -476,10 +486,12 @@ public class Main extends Activity implements View.OnClickListener {
 		Log.d("LOCALE-DEFAULT-DEBUG", Locale.getDefault().getISO3Language());
 
 		PackageManager pm = getPackageManager();
-
+/*
 		PackageInfo pi;
 		try {
-			pi = pm.getPackageInfo("fm.smart.r1", PackageManager.GET_ACTIVITIES);
+			pi = pm
+					.getPackageInfo("fm.smart.r1",
+							PackageManager.GET_ACTIVITIES);
 			for (ActivityInfo a : pi.activities) {
 				Log.d("PACKAGE-DEBUG", a.name);
 			}
@@ -492,7 +504,7 @@ public class Main extends Activity implements View.OnClickListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+*/
 		// languages = new Vector<String>(Utils.LANGUAGE_MAP.keySet());
 		languages = Utils.POPULAR_LANGUAGES;
 		Collections.sort(languages);
