@@ -422,9 +422,13 @@ public class Main extends Activity implements View.OnClickListener {
 		Vector<String> imes = new Vector<String>();
 		for (InputMethodInfo i : inputMethodInfoList) {
 			imes.add(i.getServiceName());
-			Log.d("INPUT-DEBUG", i.getServiceName());
-			Log.d("INPUT-DEBUG", i.getPackageName());
-			Log.d("INPUT-DEBUG", i.getSettingsActivity());
+			try {
+				Log.d("INPUT-DEBUG", i.getServiceName());
+				Log.d("INPUT-DEBUG", i.getPackageName());
+				Log.d("INPUT-DEBUG", i.getSettingsActivity());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		/*
@@ -486,25 +490,15 @@ public class Main extends Activity implements View.OnClickListener {
 		Log.d("LOCALE-DEFAULT-DEBUG", Locale.getDefault().getISO3Language());
 
 		PackageManager pm = getPackageManager();
-/*
-		PackageInfo pi;
-		try {
-			pi = pm
-					.getPackageInfo("fm.smart.r1",
-							PackageManager.GET_ACTIVITIES);
-			for (ActivityInfo a : pi.activities) {
-				Log.d("PACKAGE-DEBUG", a.name);
-			}
-			pi = pm.getPackageInfo("android.speech",
-					PackageManager.GET_ACTIVITIES);
-			for (ActivityInfo a : pi.activities) {
-				Log.d("PACKAGE-DEBUG", a.name);
-			}
-		} catch (NameNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-*/
+		/*
+		 * PackageInfo pi; try { pi = pm .getPackageInfo("fm.smart.r1",
+		 * PackageManager.GET_ACTIVITIES); for (ActivityInfo a : pi.activities)
+		 * { Log.d("PACKAGE-DEBUG", a.name); } pi =
+		 * pm.getPackageInfo("android.speech", PackageManager.GET_ACTIVITIES);
+		 * for (ActivityInfo a : pi.activities) { Log.d("PACKAGE-DEBUG",
+		 * a.name); } } catch (NameNotFoundException e) { // TODO Auto-generated
+		 * catch block e.printStackTrace(); }
+		 */
 		// languages = new Vector<String>(Utils.LANGUAGE_MAP.keySet());
 		languages = Utils.POPULAR_LANGUAGES;
 		Collections.sort(languages);
