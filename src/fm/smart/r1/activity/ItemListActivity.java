@@ -326,7 +326,7 @@ public class ItemListActivity extends ListActivity {
 					cue_text = cue.getFirstContents(cue_type);
 					character = cue.getFirstContents("character");
 					if (!character.equals("")) {
-						character = "„Äê" + character + "„Äë";
+						character = "Åu" + character + "Åv";
 						cue_text += character;
 					}
 				} else if (cue_type.equals("image")) {

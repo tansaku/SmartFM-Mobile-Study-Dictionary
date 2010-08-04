@@ -87,6 +87,7 @@ import fm.smart.r1.provider.SearchSuggestionSampleProvider;
  * -tricks-3-optimize-part-1/
  */
 public class Main extends Activity implements View.OnClickListener {
+	// TODO should move this to SDCard ...
 	public static final String SOUND_DIRECTORY = "sounds";
 
 	static final String PREF_REF = "SMART_FM_PREFERENCES";
@@ -791,6 +792,8 @@ public class Main extends Activity implements View.OnClickListener {
 	};
 
 	public static Bitmap getRemoteImage(String url, Bitmap default_bitmap) {
+		if (url == null)
+			return default_bitmap;
 		Bitmap bm = null;
 		AndroidHttpClient client = null;
 		Log.d("DEBUG", url);

@@ -38,11 +38,11 @@ public abstract class ItemListDownload extends Thread {
 				ItemListActivity.query_string = map.get("Query").firstElement().atts
 						.get("searchTerms").toString();
 				ItemListActivity.cue_language = Utils.INV_LANGUAGE_MAP
-						.get(map.get("item").firstElement().get("cue")
+						.get(ItemListActivity.items.firstElement().get("cue")
 								.firstElement().atts.get("language").toString());
 				ItemListActivity.response_language = Utils.INV_LANGUAGE_MAP
-						.get(map.get("item").firstElement().get("response")
-								.firstElement().atts.get("language").toString());
+						.get(ItemListActivity.items.firstElement().get("responses")
+								.firstElement().get("response").firstElement().atts.get("language").toString());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

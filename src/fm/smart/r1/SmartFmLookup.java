@@ -41,6 +41,22 @@ public class SmartFmLookup extends XMLHandler {
 		return this.index;
 	}
 
+	public HashMap<String, Vector<Node>> searchItemsV2(String keyword, int page) {
+		try {
+			keyword = URLEncoder.encode(keyword, "UTF-8");
+			Log.d("DEBUG_SEARCH_ITEMS", keyword);
+			keyword = keyword.replaceAll("\\++", "%20");
+			Log.d("DEBUG_SEARCH_ITEMS", keyword);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		parseURL("/items/matching/" + keyword + ".xml?v=2&page=" + page
+				+ "&include_sentences=true&language=" + Main.search_lang
+				+ "&translation_language=" + Main.result_lang);
+		return this.index;
+	}
+
 	public Vector<Node> item(String id) {
 		parseURL("/items/" + id + ".xml?include_sentences=true");
 		return this.index.get("item");

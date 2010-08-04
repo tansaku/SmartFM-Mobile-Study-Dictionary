@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Debug;
 import fm.smart.r1.activity.ListsList;
 
 public abstract class ListDownload extends Thread {

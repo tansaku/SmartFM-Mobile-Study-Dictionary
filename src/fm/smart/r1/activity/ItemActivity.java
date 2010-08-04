@@ -110,7 +110,7 @@ public class ItemActivity extends ListActivity {
 		 */
 
 		TextView cue_and_pronunciation = (TextView) findViewById(R.id.cue_and_pronunciation);
-		cue_and_pronunciation.setText(item.cue_text);
+		cue_and_pronunciation.setText(item.cue_text);  // TODO handle case where item is null?
 		TextView cue_part_of_speech = (TextView) findViewById(R.id.cue_part_of_speech);
 		if (!TextUtils.equals(item.part_of_speech, "None")) {
 			cue_part_of_speech.setText(item.part_of_speech);

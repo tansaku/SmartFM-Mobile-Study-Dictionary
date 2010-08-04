@@ -26,6 +26,7 @@ public abstract class ItemDownload extends Thread {
 
 	public void run() {
 		Item item = new Item();
+		Node author_node = null;
 		try {
 			// TODO for cancel to work we'll need to keep checking for
 			// interrupted state?
@@ -48,7 +49,7 @@ public abstract class ItemDownload extends Thread {
 				item.cue_text = item.cue_node.getFirstContents("text");
 				item.character = item.cue_node.getFirstContents("character");
 				if (!item.character.equals("")) {
-					item.character = "„Äê" + item.character + "„Äë";
+					item.character = "Åu" + item.character + "Åv";
 					item.cue_text += item.character;
 				}
 				if (item.sentences != null) {
@@ -68,12 +69,14 @@ public abstract class ItemDownload extends Thread {
 
 				item.part_of_speech = item.cue_node.atts.get("part_of_speech")
 						.toString();
-				item.author_name = item.item_node.getFirst("author")
-						.getFirstContents("name");
+				author_node = item.item_node.getFirst("author");
+				if (author_node != null) {
+					item.author_name = author_node.getFirstContents("name");
+					item.author_icon_url = author_node.getFirst("icon").atts
+							.get("href").toString();
+				}
 				item.type = item.response_node.atts.get("type").toString();
 
-				item.author_icon_url = item.item_node.getFirst("author")
-						.getFirst("icon").atts.get("href").toString();
 				Bitmap author_icon_default = BitmapFactory.decodeResource(
 						context.getResources(), R.drawable.no_user_image);
 				item.author_image = Main.getRemoteImage(item.author_icon_url,
@@ -149,14 +152,13 @@ public abstract class ItemDownload extends Thread {
 			// some sort of failure
 			((Activity) context).runOnUiThread(new Thread() {
 				public void run() {
-					final AlertDialog dialog = new AlertDialog.Builder(
-							context).create();
+					final AlertDialog dialog = new AlertDialog.Builder(context)
+							.create();
 					dialog.setTitle("Network Failure");
 					dialog.setMessage("Please try again later");
 					dialog.setButton("OK",
 							new DialogInterface.OnClickListener() {
-								public void onClick(
-										DialogInterface dialog,
+								public void onClick(DialogInterface dialog,
 										int which) {
 
 								}
@@ -166,11 +168,11 @@ public abstract class ItemDownload extends Thread {
 				}
 			});
 		} else if (!this.isInterrupted()) {
-			//context.startActivity(new Intent(Intent.ACTION_VIEW, Uri
-			//		.parse("content://" + SmartFm.AUTHORITY + "/item/7")));
-			
+			// context.startActivity(new Intent(Intent.ACTION_VIEW, Uri
+			// .parse("content://" + SmartFm.AUTHORITY + "/item/7")));
+
 			Intent intent = new Intent(Intent.ACTION_VIEW);
-			intent.setClassName(context,ItemActivity.class.getName());
+			intent.setClassName(context, ItemActivity.class.getName());
 			context.startActivity(intent);
 		}
 	}
